@@ -4,4 +4,6 @@ Spetsifikatsioon määratleb Valimiste infosüsteemi (VIS3) ja e-hääletamise s
 
 Spetsifikatsioon on avalik. Spetsifikatsioon ei käsitle VIS3 ega EHS konfidentsiaalset siseehitust ega liidese konfidentsiaalseid elemente.
 
+Viited
 
+["DigiSign" - lihtne protokoll edastatavate failide allkirjastamiseks, koos teostusnäitega](https://github.com/e-gov/DigiSign)
