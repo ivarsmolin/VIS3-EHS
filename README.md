@@ -138,6 +138,8 @@ Päiseridade sisu on järgmine:
 3.  `changeset` - nimekirja järjekorranumber. Rangelt kasvav number (0, 1, 2,
     ...), mis defineerib nimekirjade rakendamise järjekorra. Algnimekirja
     järjekorranumbriks on 0.
+4. `period` - nimekirjas kajastuvate muudatuste ajavahemik. Esimene väli
+   sisaldab perioodi algust, teine lõppu. Väli on informatiivne.
 
 Kirje koosneb väljadest, mille sisu on järgmine:
 
@@ -163,6 +165,10 @@ Andmevormingu formaalne kirjeldus Backus-Naur notatsioonis:
 version = "2"
 election_identifier = 1*28CHAR
 changeset = DIGIT
+rfc3339_from = RFC3339 time
+rfc3339_to = RFC3339 time
+period = rfc3339_from TAB rfc3339_to
+
 
 # Kirje väljade definitsioonid
 person_code = 11DIGIT
@@ -175,7 +181,7 @@ electoral_district_id = 1*10DIGIT
 voter = person_code TAB voter_name TAB action TAB kov_code TAB electoral_district_id LF
 
 # Nimekirja definitsioon
-voter_list = version LF election_identifier LF changeset LF *voter
+voter_list = version LF election_identifier LF changeset LF period LF *voter
 ```
 
 ### 3.1 Nimekirja tõlgendamine
@@ -223,6 +229,7 @@ Valijate algnimekiri, 0.
 2<LF>
 RK2051<LF>
 0<LF>
+2021-01-11T02:00:00Z<TAB>2021-01-12T02:00:00Z<LF>
 10000000001<TAB>NIMI NIMESTE1<TAB>lisamine<TAB>0482<TAB>3<LF>
 20000000002<TAB>NIMI NIMESTE2<TAB>lisamine<TAB>0514<TAB>7<LF>
 30000000003<TAB>NIMI NIMESTE3<TAB>lisamine<TAB>0735<TAB>7<LF>
@@ -245,6 +252,7 @@ Muudatusnimekiri, 1:
 2<LF>
 RK2051<LF>
 1<LF>
+2021-01-12T02:00:00Z<TAB>2021-01-13T02:00:00Z<LF>
 20000000002<TAB>NIMI NIMESTE2<TAB>kustutamine<TAB>0514<TAB>7<LF>
 20000000002<TAB>NIMI NIMESTE2<TAB>lisamine<TAB>0735<TAB>7<LF>
 30000000003<TAB>NIMI NIMESTE3<TAB>kustutamine<TAB>0735<TAB>7<LF>
@@ -260,6 +268,7 @@ Muudatusnimekiri, 2:
 2<LF>
 RK2051<LF>
 2<LF>
+2021-01-13T02:00:00Z<TAB>2021-01-14T02:00:00Z<LF>
 20000000002<TAB>NIMI NIMESTE2<TAB>kustutamine<TAB>0735<TAB>7<LF>
 20000000002<TAB>UUSNIMI NIMESTE2<TAB>lisamine<TAB>0735<TAB>7<LF>
 60000000006<TAB>NIMI NIMESTE6<TAB>kustutamine<TAB>0296<TAB>4<LF>
