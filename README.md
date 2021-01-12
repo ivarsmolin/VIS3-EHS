@@ -9,13 +9,111 @@ algnimekirja ja valijate nimekirja muudatusi ehk muudatusnimekirju.
 Spetsifikatsioon on avalik. Spetsifikatsioon ei käsitle VIS3 ega EHS
 konfidentsiaalset siseehitust ega liidese konfidentsiaalseid elemente.
 
-## 2. Sõnumivahetus valijanimekirjade edastamiseks
+## 2. Sõnumivahetus nimekirjade edastamiseks
 
-### 2.1 Valijate algnimekirja edastamine
+Valijate nimekirja põhjal tuvastab EHS, isiku hääleõiguse ja
+ringkonnakuuluvuse. Valijate nimekiri võib hääletamisperioodi jooksul muutuda,
+sellest tulenevalt võib valija saada hääleõiguse, jääda oma hääleõigusest ilma
+või saada hääleõiguse senisest erinevas ringkonnas. EHS peab nende muutustega
+arvestama. Muudatused saab EHS VIS3 vahendusel muudatusnimekirjadena.
 
-### 2.2 Valijate muudatusnimekirja edastamine
+Spetsifikatsioonis defineeritud liidese vahendusel suhtlevad vahetult EHS ja
+VIS3:
 
-### 2.3 Nimekirjade loendi edastamine
+-   VIS3 liidestub Rahavastikuregistri andmekoguga ning hangib seal nii valijate
+    algnimekirja kui muudatusnimekirjad.
+-   EHS esitab päringuid muudatusnimekirjade saamiseks VIS3 käest.
+
+Kaudselt on liidesega seotud:
+
+-   Rahvastikuregister, kus toimub nimekirjade haldamine;
+-   VIS3 ja EHS operaatorid, kes vahetavad taustakanalis algnimekirja ning
+    suhtlevad võimalike tõrgete lahendamisel;
+-   Audiitor, kes veendub et EHS on VIS3 poolt tarnitud nimekirjad rakendanud;
+-   EHS vallasrežiimis töötlemisrakendus, mis verifitseerib EHS sidusrežiimi
+    komponentide poolt üle antud urni.
+
+### 2.1 Ettevalmistused nimekirjade edastamiseks
+
+![Joonis 1: Sõnumivahetuse ettevalmistamine](model/list_prepare.png)
+
+Valijate alg- ja muudatusnimekirjade vahetamisele eelnevalt tuleb vahetada
+nimekirjadele juurdepääsuks ja nimekirjade autentsuse kontrolliks vajalikud
+võtmed ja sertifikaadid (sammud 1-5)
+
+### 2.2 Valijate algnimekirja edastamine
+
+![Joonis 2: Algnimekirja edastamine](model/list_initial.png)
+
+Valijate algnimekiri järjekorranumbriga 0 laetakse EHSi haldusliidese
+veebiliidesest. Valijate algnimekirja laadimine on eelduseks muudatusnimekirjade
+edasiseks automaatseks laadimiseks.
+
+Valijate algnimekirja laadimine toimub järgmistes etappides:
+
+-   VIS3 kasutab Rahavastikuregistri X-tee teenust valijate algnimekirja
+    laadimiseks (sammud 1-3).
+-   VIS3 operaator ja EHS operaator vahetavad algnimekirja taustakanalis, EHS
+    operaator allkirjastab algnimekirja täiendavalt ID-kaardiga (sammud 4-6).
+-   EHS operaator laeb digitaalselt allkirjastatud algnimekirja EHSi, kus
+    see rakendatakse (sammud 7-9).
+
+### 2.3 Valijate muudatusnimekirja edastamine
+
+![Joonis 3: Muudatusnimekirja edastamine](model/list_changeset.png)
+
+Valijate nimekirja muudatusnimekirja laadimise algatab EHS. Muudatusnimekirjad
+on järjestatud, nii EHS kui VIS3 peavad arvet, milline on viimane loodud
+muudatusnimekiri.
+
+EHS algatab uue muudatusnimekirja laadimise pöördudes uue järjekorranumbriga
+VIS3 vastava otspunkti poole. EHS võib varasemaid muudatusnimekirju uuesti
+pärida, kasutades varasemat järjekorranumbrit.
+
+VIS3 saab muudatused Rahvastikuregistri X-tee teenusest. VIS3 poolne muudatuste
+hankimine on EHSile muudatuste esitamisest sõltumatu paralleelprotsess. See
+tähendab, et üks EHSile minev muudatusnimekiri võib sisaldada mitut
+Rahavastikuregistrist tulnud muudatust.
+
+Muudatusnimekirjade edastamine EHSi käib järgmiselt:
+
+-   EHS esitab päringu muudatusnimekirja saamiseks (samm 1)
+-   Kui muudatusi ei ole, siis ei ole ka muudatusnimekirja (samm 2)
+-   EHS kordab mingi aja möödudes päringut muudatusnimekirja saamiseks (samm 3)
+-   VIS3 edastab vahepeal saabunud muudatused EHSile ning EHS rakendab need
+    edukalt (sammud 4-5)
+-   Nii VIS3 kui EHS suurendavad muudatusnimekirjade järjekorranumbrit ning mõne
+    aja möödudes edastatakse uus muudatusnimekiri (sammud 6-8)
+
+### 2.4 Veajuhtumite lahendamine
+
+![Joonis 4: Veajuhtumite lahendamine](model/list_errors.png)
+
+Muudatusnimekirjade edastamisel ei saa välistada vigu. Olenevalt vea iseloomust
+on võimalik taaste, keerulisematel juhtudel tuleb mõni vigaseks osutunud
+nimekiri vahele jätta. Veajuhtumi menetlemise ajal muudatusnimekirju ei
+edastata.
+
+Veajuhtumite lahendamine toimub järgmiselt:
+
+-   EHS ja VIS3 käivitavad protokolli muudatusnimekirja edastamiseks (sammud
+    1-3).
+-   EHS tunnistab nimekirja vigaseks ning teavitab sellest operaatorit (samm 4).
+-   Probleemi analüüsides tuvastatakse EHS-poolne tõrge, mida on võimalik
+    lahendada. Tõrge lahendatakse ning EHS ja VIS3 kordavad edukalt protokolli
+    (sammud 5-7).
+-   EHS ja VIS3 käivitavad protokolli muudatusnimekirja edastamiseks (sammud
+    8-10).
+-   EHS tunnistab nimekirja vigaseks ning teavitab sellest operaatorit (samm
+    11).
+-   Probleemi analüüsides tuvastatakse sisuline probleem nimekirjas. Vigast
+    nimekirja ei muudeta, luuakse uus korrektne nimekiri. EHS operaator laeb
+    digitaalselt allkirjastatud korralduse vigase nimekirja vahele jätmiseks
+    (samm 12)
+-   EHS ja VIS3 suurendavad järjekorranumbrit ning käivitavad protokolli
+    muudatusnimekirja edastamiseks (sammud 13-15).
+
+### 2.5 Nimekirjade loendi edastamine
 
 ## 3. Nimekirja andmevorming
 
