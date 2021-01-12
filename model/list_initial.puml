@@ -1,0 +1,35 @@
+@startuml
+autonumber
+actor "EHS operaator" as ac_ehs
+participant "EHS" as ehs
+participant "VIS" as vis
+actor "VIS operaator" as ac_vis
+participant "RR" as rr
+
+activate vis
+activate rr
+
+ac_vis -> vis : Algata valijate algnimekirja hankimine
+vis -> rr : RRValimisteAlgNimekiriRequest
+rr -> vis : RRValimisteAlgNimekiriResponse
+
+...Paigaldatakse EHS...
+
+ac_ehs -> ehs: Algata valimissündmus
+activate ehs
+ac_vis -> vis: Ekspordi valijate algnimekiri
+vis -> ac_vis: Valijate algnimekiri 0
+ac_vis -> ac_ehs: Valijate algnimekiri 0
+ac_ehs -> ac_ehs: Allkirjasta valijate algnimekiri 0
+ac_ehs -> ehs: Impordi valijate algnimekiri 0
+ehs -> ehs: Impordi valijate algnimekiri 0
+
+...Algab elektrooniline hääletamine...
+
+ehs -> vis : Anna valijate nimekirja muudatused (1)
+vis -> ehs : Veel mitte. HTTP 204 - no-content
+
+deactivate vis
+deactivate rr
+deactivate ehs
+@enduml

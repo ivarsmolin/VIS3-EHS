@@ -1,0 +1,48 @@
+@startuml
+autonumber
+actor "EHS operaator" as ac_ehs
+participant "EHS" as ehs
+participant "VIS" as vis
+'actor "VIS operaator" as ac_vis
+'participant "RR" as rr
+
+activate vis
+'activate rr
+activate ehs
+
+ehs -> vis : Anna valijate nimekirja muudatused (1)
+vis -> ehs : Veel mitte. HTTP 204 - no-content
+
+...mingi aja möödudes...
+
+ehs -> vis : Anna valijate nimekirja muudatused (1)
+vis -> ehs : Muudatusnimekiri 1
+ehs -> ehs : Impordi muudatusnimekiri 1
+ehs -> ac_ehs: Muudatusnimekiri 1, laadimisel probleem
+
+...EHS-poolne tõrge lahendatakse...
+
+ehs -> vis : Anna valijate nimekirja muudatused (1)
+vis -> ehs : Muudatusnimekiri 1
+ehs -> ehs : Impordi muudatusnimekiri 1
+
+...mingi aja möödudes...
+
+
+ehs -> vis : Anna valijate nimekirja muudatused (2)
+vis -> ehs : Muudatusnimekiri 2
+ehs -> ehs : Impordi muudatusnimekiri 2
+ehs -> ac_ehs: Muudatusnimekiri 2, laadimisel probleem
+
+...RR- või VIS-poolne tõrge lahendatakse, tekib muudatusnimekiri 3...
+
+ac_ehs -> ehs: Allkirjastatud korraldus jätta vahele muudatusnimekiri 2
+
+ehs -> vis : Anna valijate nimekirja muudatused (3)
+vis -> ehs : Muudatusnimekiri 3
+ehs -> ehs : Impordi muudatusnimekiri 3
+
+deactivate vis
+'deactivate rr
+deactivate ehs
+@enduml
