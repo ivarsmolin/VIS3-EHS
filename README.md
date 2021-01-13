@@ -276,6 +276,28 @@ RK2051<LF>
 
 ## 4. Nimekirja signeerimine
 
+Nii algnimekirjaga kui muudatusnimekirjadega kaasatakse allkirjafail (FIPS
+186-4), mille moodustab andmeallikas, arvutades algsest valijate nimekirjast
+SHA256-räsi ning allkirjastades selle räsi ECDSA võtmega (kasutame P-256
+kõverat). Andmeallika poolt genereeritud avalik võti tehakse taustakanalis
+kättesaadavaks EHSile ning selle võtme alusel kontrollitakse EHS komponentides
+valijate nimekirjade terviklust.
+
+Võtmete genereerimiseks, signeerimiseks ning verifitseerimiseks võib kasutada
+tööriista OpenSSL:
+
+-   Võtme genereerimine: `openssl ecparam -name prime256v1 -genkey -noout -out
+    private.key.pem`
+-   Avaliku võtme eraldamine: `openssl ec -in private.key.pem -pubout -out
+    public.key.pem`
+-   Andmefaili signeerimine: `openssl dgst -sha256 -sign private.key.pem -out
+    data.sig data.txt`
+-   Signatuuri verifitseerimine: `openssl dgst -sha256 -verify public.key.pem
+    -signature data.sig data.txt`
+
+Näide antud meetodi kasutamiseks golang keeles on leitav repositooriumis
+[DigiSign](https://github.com/e-gov/DigiSign)
+
 ## 5. Transpordiprotokoll
 
 ## 6. Näited
