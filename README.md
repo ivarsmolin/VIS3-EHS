@@ -300,6 +300,79 @@ Näide antud meetodi kasutamiseks golang keeles on leitav repositooriumis
 
 ## 5. Transpordiprotokoll
 
+VIS3-EHS masinliides koosneb kahest API otspunktist.
+
+1.  API otspunkt `api-election-get-voters-changeset` muudatusnimekirjade
+    laadimiseks
+2.  API otspunkt `api-election-list-changesets` ülevaate saamiseks avalikustatud
+    nimekirjadest
+
+Otspunktide nimed on hetkel fiktiivsed.
+
+Transpordiprotokoll on HTTPS, kuna volitamata ligipääs nimekirjadele tuleb
+tõkestada kasutatakse mõlemapoolselt autenditud TLS ühendusi.
+
+### 5.1 `api-election-get-voters-changeset`
+
+HTTP meetod on GET. Päringu tegemisel tuleb kasutada kohustuslikke parameetreid
+`changeset` ja `election_identifier`, kus
+
+-   `changeset` on muudatusnimekirja `integer` tüüpi järjekorranumber.
+-   `election_identifier` on `string` tüüpi valimissündmuse identifikaator.
+
+Kui EHS teeb API otspunkti GET päringu, siis juhul kui vastava identifikaatori
+ja järjekorranumbriga nimekiri eksisteerib, vastab VIS3
+`application/octet-stream` tüüpi baidijadaga, mis esitab kahest failist
+koosnevat ZIP konteinerit:
+
+-   [nimekirjafail](#nimekirja-andmevorming) nimega
+    `<election_identifier>-voters-<changeset>.utf`
+-   [signatuurifail](#nimekirja-signeerimine) nimega
+    `election_identifier<>-voters-<changeset>.sig`
+
+Sellise vastuse korral on HTTP status 200.
+
+Juhul kui vastava järjekorranumbriga muudatusnimekirja veel ei eksisteeri
+antakse vastuses HTTP status 400.
+
+### 5.1 `api-election-list-changesets`
+
+HTTP meetod on GET. Päringu tegemisel tuleb kasutada kohustuslikku parameetrit
+`election_identifier`:
+
+-   `election_identifier` on `string` tüüpi valimissündmuse identifikaator.
+
+Kui EHS teeb API otspunkti, siis juhul kui vastava identifikaatoriga valimine
+eksisteerib, vastab VIS3 `application/json` tüüpi baidijadaga, mis sisaldab
+endas JSON vormingus viiteid kõigile väljastatud muudatusnimekirjadele.
+
+``` {.sourceCode .html}
+{
+  changesets: [
+    {
+      "changeset": 0,
+      "url": "https://vis3.node/api-election-get-voters-changeset/?changeset=0&election_identifier=RK2051",
+      "from": "2021-01-11T02:00:00Z",
+      "to": "2021-01-12T02:00:00Z"
+    },
+    {
+      "changeset": 1,
+      "url": "https: //vis3.node/api-election-get-voters-changeset/?changeset=1&election_identifier=RK2051",
+      "from": "2021-01-12T02:00:00Z",
+      "to": "2021-01-13T02:00:00Z"
+    },
+    {
+      "changeset": 2,
+      "url": "https: //vis3.node/api-election-get-voters-changeset/?changeset=2&election_identifier=RK2051",
+      "from": "2021-01-13T02:00:00Z",
+      "to": "2021-01-14T02:00:00Z"
+    }
+  ]
+}
+```
+
+Sellise vastuse korral on HTTP status 200.
+
 ## 6. Näited
 
 ## 7. Viited
