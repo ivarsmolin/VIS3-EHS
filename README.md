@@ -84,6 +84,10 @@ Muudatusnimekirjade edastamine EHSi käib järgmiselt:
     edukalt (sammud 4-5)
 -   Nii VIS3 kui EHS suurendavad muudatusnimekirjade järjekorranumbrit ning mõne
     aja möödudes edastatakse uus muudatusnimekiri (sammud 6-8)
+    
+**Märkused**
+- Kui järjekorras järgmise muudatusnimekirja pärimisel muudatuskirjed puuduvad
+  vastatakse HTTP staatusega 404 (not-found).
 
 ### 2.4 Veajuhtumite lahendamine
 
@@ -333,7 +337,7 @@ koosnevat ZIP konteinerit:
 Sellise vastuse korral on HTTP status 200.
 
 Juhul kui vastava järjekorranumbriga muudatusnimekirja veel ei eksisteeri
-antakse vastuses HTTP status 400.
+antakse vastuses HTTP status 404.
 
 ### 5.1 `api-election-list-changesets`
 
