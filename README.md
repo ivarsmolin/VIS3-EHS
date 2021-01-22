@@ -139,7 +139,8 @@ Päiseridade sisu on järgmine:
     ...), mis defineerib nimekirjade rakendamise järjekorra. Algnimekirja
     järjekorranumbriks on 0.
 4. `period` - nimekirjas kajastuvate muudatuste ajavahemik. Esimene väli
-   sisaldab perioodi algust, teine lõppu. Väli on informatiivne.
+   sisaldab perioodi algust, teine lõppu. Algnimekirja puhul on perioodi algus
+   ja lõpu võrdsed. Väli on informatiivne. 
 
 Kirje koosneb väljadest, mille sisu on järgmine:
 
@@ -229,7 +230,7 @@ Valijate algnimekiri, 0.
 2<LF>
 RK2051<LF>
 0<LF>
-2021-01-11T02:00:00Z<TAB>2021-01-12T02:00:00Z<LF>
+2021-01-12T02:00:00Z<TAB>2021-01-12T02:00:00Z<LF>
 10000000001<TAB>NIMI NIMESTE1<TAB>lisamine<TAB>0482<TAB>3<LF>
 20000000002<TAB>NIMI NIMESTE2<TAB>lisamine<TAB>0514<TAB>7<LF>
 30000000003<TAB>NIMI NIMESTE3<TAB>lisamine<TAB>0735<TAB>7<LF>
