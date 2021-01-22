@@ -11,7 +11,7 @@ activate vis
 activate ehs
 
 ehs -> vis : Anna valijate nimekirja muudatused (1)
-vis -> ehs : Veel mitte. HTTP 204 - no-content
+vis -> ehs : Veel mitte. HTTP 404 - no-content
 
 ...mingi aja möödudes...
 
