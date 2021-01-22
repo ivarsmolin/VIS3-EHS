@@ -85,6 +85,10 @@ Muudatusnimekirjade edastamine EHSi käib järgmiselt:
 -   Nii VIS3 kui EHS suurendavad muudatusnimekirjade järjekorranumbrit ning mõne
     aja möödudes edastatakse uus muudatusnimekiri (sammud 6-8)
 
+**Märkused**
+- Kui päritakse muudatusnimekirja suurema järjenumbriga, kui tegelik järgmise
+  muudatusnimekirja järjenumber, vastatakse HTTP staatusega 409 (conflict).
+
 ### 2.4 Veajuhtumite lahendamine
 
 ![Joonis 4: Veajuhtumite lahendamine](model/list_errors.png)
@@ -112,6 +116,12 @@ Veajuhtumite lahendamine toimub järgmiselt:
     (samm 12)
 -   EHS ja VIS3 suurendavad järjekorranumbrit ning käivitavad protokolli
     muudatusnimekirja edastamiseks (sammud 13-15).
+-   EHS ja VIS3 suurendavad järjekorranumbrit ning käivitavad protokolli
+    muudatusnimekirja edastamiseks (sammud 16-17). VIS3 vastab HTTP staatusega
+    409 (conflict).
+-   EHS tuvastab vale järjenumbriga nimekirja laadimise ning teavitab sellest
+    operaatorit (samm 18).
+-   Tõrge lahendatakse ning EHS ja VIS3 kordavad edukalt protokolli (sammud 19-21).
 
 ### 2.5 Nimekirjade loendi edastamine
 
