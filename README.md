@@ -140,7 +140,7 @@ Päiseridade sisu on järgmine:
     järjekorranumbriks on 0.
 4. `period` - nimekirjas kajastuvate muudatuste ajavahemik. Esimene väli
    sisaldab perioodi algust, teine lõppu. Algnimekirja puhul on perioodi algus
-   ja lõpu võrdsed. Väli on informatiivne. 
+   ja lõpu väärtused võrdsed. Väli on informatiivne. 
 
 Kirje koosneb väljadest, mille sisu on järgmine:
 
