@@ -53,10 +53,10 @@ Valijate algnimekirja laadimine toimub järgmistes etappides:
 
 -   VIS3 kasutab Rahavastikuregistri X-tee teenust valijate algnimekirja
     laadimiseks (sammud 1-3).
--   VIS3 operaator ja EHS operaator vahetavad algnimekirja taustakanalis, EHS
-    operaator allkirjastab algnimekirja täiendavalt ID-kaardiga (sammud 4-6).
+-   EHS operaator pärib allkirjastatud algnimekirja VIS3 teenusest, ning
+    allkirjastab algnimekirja täiendavalt ID-kaardiga (sammud 4-5).
 -   EHS operaator laeb digitaalselt allkirjastatud algnimekirja EHSi, kus
-    see rakendatakse (sammud 7-9).
+    see rakendatakse (sammud 6-8).
 
 ### 2.3 Valijate muudatusnimekirja edastamine
 

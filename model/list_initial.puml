@@ -15,9 +15,8 @@ rr -> vis : RRValimisteAlgNimekiriResponse
 
 ...Algnimekiri edastatakse EHS operaatorile...
 
-ac_vis -> vis: Ekspordi valijate algnimekiri
-vis -> ac_vis: Valijate algnimekiri 0
-ac_vis -> ac_ehs: Valijate algnimekiri 0
+ac_ehs -> vis: Ekspordi valijate algnimekiri
+vis -> ac_ehs: Valijate algnimekiri 0
 
 ...EHS on valmis algnimekirja rakendama...
 
@@ -27,11 +26,21 @@ ac_ehs -> ehs: Impordi valijate algnimekiri 0
 ehs -> ehs: Impordi valijate algnimekiri 0
 
 ...Algab elektrooniline hääletamine...
+par Paralleelprotsessid
+	loop Intervalliga X aja tagant
+      vis -> rr : RRValimisteNimekirjaMuudatusedRequest
+      rr -> vis : RRValimisteNimekirjaMuudatusedResponse
+	end
 
-ehs -> vis : Anna valijate nimekirja muudatused (1)
-vis -> ehs : Veel mitte. HTTP 204 - no-content
+	else
+
+	ehs -> vis : Anna valijate nimekirja muudatused (1)
+	vis -> ehs : Veel mitte. HTTP 404 - no-content
+
+end
 
 deactivate vis
 deactivate rr
 deactivate ehs
+
 @enduml
