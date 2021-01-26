@@ -233,7 +233,7 @@ ning maksimaalselt üks kustutamise-lisamise paar.
 On võimalik, et valimise ajal muutub valija isikukood. Sellisel juhul lisatakse
 nimekirja vana isikukoodiga kustutamise kirje ning uue isikukoodiga lisamise
 kirje. Täiendav korduvhääletamise kontroll ei ole selle liidese skoobis ja
-teostakse vastavate infosüsteemide operaatorite poolt eraldi.
+teostakse VIS3 poolt eraldi.
 
 
 ### 3.2 Näited nimekirjadest
@@ -287,6 +287,21 @@ RK2051<LF>
 20000000002<TAB>NIMI NIMESTE2<TAB>kustutamine<TAB>0735<TAB>7<LF>
 20000000002<TAB>UUSNIMI NIMESTE2<TAB>lisamine<TAB>0735<TAB>7<LF>
 60000000006<TAB>NIMI NIMESTE6<TAB>kustutamine<TAB>0296<TAB>4<LF>
+```
+
+Muudatusnimekiri, 3:
+
+1.  Muutub valija 20000000003->10000000003 isikukood koos nimega.
+2.  Valija 60000000006 saab hääleõiguse.
+
+``` {.sourceCode .bnf}
+3<LF>
+RK2051<LF>
+3<LF>
+2021-01-14T02:00:00Z<TAB>2021-01-15T02:00:00Z<LF>
+20000000003<TAB>NIMI NIMESTE4<TAB>kustutamine<TAB>0735<TAB>7<LF>
+10000000003<TAB>UUSNIMI NIMESTE4<TAB>lisamine<TAB>0735<TAB>7<LF>
+60000000006<TAB>NIMI NIMESTE6<TAB>lisamine<TAB>0296<TAB>4<LF>
 ```
 
 ## 4. Nimekirja signeerimine
