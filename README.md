@@ -53,10 +53,10 @@ Valijate algnimekirja laadimine toimub järgmistes etappides:
 
 -   VIS3 kasutab Rahavastikuregistri X-tee teenust valijate algnimekirja
     laadimiseks (sammud 1-3).
--   VIS3 operaator ja EHS operaator vahetavad algnimekirja taustakanalis, EHS
-    operaator allkirjastab algnimekirja täiendavalt ID-kaardiga (sammud 4-6).
+-   EHS operaator pärib allkirjastatud algnimekirja VIS3 teenusest, ning
+    allkirjastab algnimekirja täiendavalt ID-kaardiga (sammud 4-5).
 -   EHS operaator laeb digitaalselt allkirjastatud algnimekirja EHSi, kus
-    see rakendatakse (sammud 7-9).
+    see rakendatakse (sammud 6-8).
 
 ### 2.3 Valijate muudatusnimekirja edastamine
 
@@ -84,6 +84,10 @@ Muudatusnimekirjade edastamine EHSi käib järgmiselt:
     edukalt (sammud 4-5)
 -   Nii VIS3 kui EHS suurendavad muudatusnimekirjade järjekorranumbrit ning mõne
     aja möödudes edastatakse uus muudatusnimekiri (sammud 6-8)
+    
+**Märkused**
+- Kui järjekorras järgmise muudatusnimekirja pärimisel muudatuskirjed puuduvad
+  vastatakse HTTP staatusega 404 (not-found).
 
 ### 2.4 Veajuhtumite lahendamine
 
@@ -333,7 +337,7 @@ koosnevat ZIP konteinerit:
 Sellise vastuse korral on HTTP status 200.
 
 Juhul kui vastava järjekorranumbriga muudatusnimekirja veel ei eksisteeri
-antakse vastuses HTTP status 400.
+antakse vastuses HTTP status 404.
 
 ### 5.1 `api-election-list-changesets`
 
