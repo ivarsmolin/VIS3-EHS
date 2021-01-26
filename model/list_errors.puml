@@ -36,6 +36,18 @@ ehs -> vis : Anna valijate nimekirja muudatused (5)
 vis -> ehs : Muudatusnimekiri 5
 ehs -> ehs : Impordi muudatusnimekiri 5
 
+...mingi aja möödudes...
+
+ehs -> vis : Anna valijate nimekirja muudatused (7)
+vis -> ehs : Konflikt. HTTP 409 - conflict
+ehs -> ac_ehs: Järjenumbri viga, laadimisel probleem
+
+...EHS-poolne tõrge lahendatakse...
+
+ehs -> vis : Anna valijate nimekirja muudatused (6)
+vis -> ehs : Muudatusnimekiri 6
+ehs -> ehs : Impordi muudatusnimekiri 6
+
 deactivate vis
 'deactivate rr
 deactivate ehs
