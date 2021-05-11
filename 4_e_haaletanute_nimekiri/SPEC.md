@@ -18,7 +18,7 @@ Faili struktuur on kirjeldatud JSON-skeemiga.
 
 ## Edastatav fail
 
-Faili struktuur (JSON-skeem): [onlinevoters.schema](choices.schema)
+Faili struktuur (JSON-skeem): [onlinevoters.schema](onlinevoters.schema)
 
 Faili näited (JSON):
 

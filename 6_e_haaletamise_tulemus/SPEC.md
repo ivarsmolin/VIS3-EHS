@@ -16,11 +16,11 @@ Fail on JSON-formaadis.
 
 ## Edastatav fail
 
-Faili struktuur (JSON-skeem): [revoke.schema](revoke.schema)
+Faili struktuur (JSON-skeem): [results.schema](results.schema)
 
 Faili näited (JSON):
 
-- [revoke_EP.json](revoke_EP.json)
-- [revoke_KOV.json](revoke_KOV.json)
-- [revoke_RH.json](revoke_RH.json)
-- [revoke_RK.json](revoke_RK.json)
+- [results_EP.json](results_EP.json)
+- [results_KOV.json](results_KOV.json)
+- [results_RH.json](results_RH.json)
+- [results_RK.json](results_RK.json)

@@ -21,7 +21,7 @@ Joonis 1. VIS3 ja EHS liidesed (ülevaade). Andmed liiguvad noole suunas. Masinl
 
 [4 E-hääletanute nimekiri](4_e_haaletanute_nimekiri/SPEC.md)
 
-[5 Tühistusnimekiri](5_Tyhistusnimekiri/SPEC.md)
+[5 Tühistus- ja ennistusnimekiri](5_Tyhistusnimekiri/SPEC.md)
 
 [6 E-hääletamise tulemus](6_e_haaletamise_tulemus/SPEC.md)
 
