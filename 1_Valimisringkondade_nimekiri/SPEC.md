@@ -25,7 +25,7 @@ Faili struktuur (JSON-skeem): [districts.schema](districts.schema)
 Näited (JSON):
 
 - [district_KOV.json](district_KOV.json)
-- [district_EP.json](district_EP.json)
-- [district_RH.json](district_RH.json)
-- [district_RK.json](district_RK.json)
+- [districts_EP.json](districts_EP.json)
+- [districts_RH.json](districts_RH.json)
+- [districts_RK.json](districts_RK.json)
 
