@@ -22,5 +22,10 @@ EHS senine liides VIS2-ga on spetsifitseeritud IVXV-PR-1.5.0, jaotis 3.2 "Valimi
 
 Faili struktuur (JSON-skeem): [districts.schema](districts.schema)
 
-Faili näide (JSON): [district_KOV.json](district_KOV.json)
+Näited (JSON):
+
+- [district_KOV.json](district_KOV.json)
+- [district_EP.json](district_EP.json)
+- [district_RH.json](district_RH.json)
+- [district_RK.json](district_RK.json)
 
