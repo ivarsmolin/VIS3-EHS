@@ -358,7 +358,7 @@ koosnevat ZIP konteinerit:
 -   [nimekirjafail](#nimekirja-andmevorming) nimega
     `<election_identifier>-voters-<changeset>.utf`
 -   [signatuurifail](#nimekirja-signeerimine) nimega
-    `election_identifier<>-voters-<changeset>.sig`
+    `<election_identifier>-voters-<changeset>.sig`
 
 Sellise vastuse korral on HTTP status 200.
 
