@@ -45,7 +45,7 @@ võtmed ja sertifikaadid (sammud 1-5)
 
 ![Joonis 2: Algnimekirja edastamine](model/list_initial.png)
 
-Valijate algnimekiri järjekorranumbriga 0 laetakse EHSi haldusliidese
+Valijate algnimekiri järjekorranumbriga 0 laaditakse EHSi haldusliidese
 veebiliidesest. Valijate algnimekirja laadimine on eelduseks muudatusnimekirjade
 edasiseks automaatseks laadimiseks.
 
@@ -55,7 +55,7 @@ Valijate algnimekirja laadimine toimub järgmistes etappides:
     laadimiseks (sammud 1-3).
 -   EHS operaator pärib allkirjastatud algnimekirja VIS3 teenusest, ning
     allkirjastab algnimekirja täiendavalt ID-kaardiga (sammud 4-5).
--   EHS operaator laeb digitaalselt allkirjastatud algnimekirja EHSi, kus
+-   EHS operaator laadib digitaalselt allkirjastatud algnimekirja EHSi, kus
     see rakendatakse (sammud 6-8).
 
 ### 2.3 Valijate muudatusnimekirja edastamine
