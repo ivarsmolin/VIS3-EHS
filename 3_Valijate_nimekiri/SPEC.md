@@ -89,7 +89,6 @@ Muudatusnimekirjade edastamine EHSi käib järgmiselt:
 - Kui järjekorras järgmise muudatusnimekirja pärimisel muudatuskirjed puuduvad
   vastatakse HTTP staatusega 404 (not-found).
 
-**Märkused**
 - Kui päritakse muudatusnimekirja suurema järjenumbriga, kui tegelik järgmise
   muudatusnimekirja järjenumber, vastatakse HTTP staatusega 409 (conflict).
 
