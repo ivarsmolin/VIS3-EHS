@@ -11,7 +11,7 @@ konfidentsiaalset siseehitust ega liidese konfidentsiaalseid elemente.
 
 ## 2. Sõnumivahetus nimekirjade edastamiseks
 
-Valijate nimekirja põhjal tuvastab EHS, isiku hääleõiguse ja
+Valijate nimekirja põhjal tuvastab EHS isiku hääleõiguse ja
 ringkonnakuuluvuse. Valijate nimekiri võib hääletamisperioodi jooksul muutuda,
 sellest tulenevalt võib valija saada hääleõiguse, jääda oma hääleõigusest ilma
 või saada hääleõiguse senisest erinevas ringkonnas. EHS peab nende muutustega
