@@ -20,7 +20,7 @@ arvestama. Muudatused saab EHS VIS3 vahendusel muudatusnimekirjadena.
 Spetsifikatsioonis defineeritud liidese vahendusel suhtlevad vahetult EHS ja
 VIS3:
 
--   VIS3 liidestub Rahavastikuregistri andmekoguga ning hangib seal nii valijate
+-   VIS3 liidestub Rahavastikuregistri andmekoguga ning hangib sealt nii valijate
     algnimekirja kui muudatusnimekirjad.
 -   EHS esitab päringuid muudatusnimekirjade saamiseks VIS3 käest.
 
